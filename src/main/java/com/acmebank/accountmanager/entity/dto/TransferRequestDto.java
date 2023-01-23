@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -13,11 +14,15 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class TransferRequestDto {
     @NotNull
+    @Valid
     private Long senderAccountId;
     @NotNull
+    @Valid
     private Long receiverAccountId;
     @NotNull
+    @Valid
     private Double amount;
     @NotNull
+    @Valid
     private String currency;
 }
