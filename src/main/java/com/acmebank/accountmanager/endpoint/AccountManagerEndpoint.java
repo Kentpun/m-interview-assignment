@@ -29,7 +29,7 @@ public class AccountManagerEndpoint extends GlobalExceptionHandler {
     @Autowired
     private TransferService transferService;
 
-    @GetMapping("/balances/{accountId}")
+    @GetMapping("/balance/{accountId}")
     public Result<AccountEnquiryResponseDto> getBalance(@Valid @PathVariable Long accountId){
         log.info("account enquiry info {}", accountId);
         return Res.success(accountEnquiryService.getBalanceByAccountId(accountId));
