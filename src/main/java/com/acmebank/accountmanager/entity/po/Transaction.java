@@ -20,11 +20,11 @@ public class Transaction extends AuditEntity {
     private Long id;
 
     @Basic
-    @Column(name = "senderId")
+    @Column(name = "sender_id")
     private Long senderId;
 
     @Basic
-    @Column(name = "receiverId")
+    @Column(name = "receiver_id")
     private Long receiverId;
 
     @Basic

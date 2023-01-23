@@ -5,6 +5,7 @@ import com.acmebank.accountmanager.entity.dto.AccountEnquiryResponseDto;
 import com.acmebank.accountmanager.entity.dto.TransferRequestDto;
 import com.acmebank.accountmanager.entity.dto.TransferResponseDto;
 import com.acmebank.accountmanager.exception.BizException;
+import com.acmebank.accountmanager.exception.GlobalExceptionHandler;
 import com.acmebank.accountmanager.service.AccountEnquiryService;
 import com.acmebank.accountmanager.service.TransferService;
 import com.acmebank.accountmanager.utils.response.Res;
@@ -21,7 +22,7 @@ import javax.validation.Valid;
 @RequestMapping("/account-manager")
 @AllArgsConstructor
 @Slf4j
-public class AccountManagerEndpoint {
+public class AccountManagerEndpoint extends GlobalExceptionHandler {
     @Autowired
     private AccountEnquiryService accountEnquiryService;
 
@@ -29,7 +30,7 @@ public class AccountManagerEndpoint {
     private TransferService transferService;
 
     @GetMapping("/balances/{accountId}")
-    public Result<AccountEnquiryResponseDto> getBalance(@PathVariable Long accountId){
+    public Result<AccountEnquiryResponseDto> getBalance(@Valid @PathVariable Long accountId){
         log.info("account enquiry info {}", accountId);
         return Res.success(accountEnquiryService.getBalanceByAccountId(accountId));
     }
