@@ -1,6 +1,7 @@
 package com.acmebank.accountmanager.endpoint;
 
 
+import com.acmebank.accountmanager.entity.dto.AccountEnquiryRequestDto;
 import com.acmebank.accountmanager.entity.dto.AccountEnquiryResponseDto;
 import com.acmebank.accountmanager.entity.dto.TransferRequestDto;
 import com.acmebank.accountmanager.entity.dto.TransferResponseDto;
@@ -29,10 +30,10 @@ public class AccountManagerEndpoint extends GlobalExceptionHandler {
     @Autowired
     private TransferService transferService;
 
-    @GetMapping("/balance/{accountId}")
-    public Result<AccountEnquiryResponseDto> getBalance(@Valid @PathVariable Long accountId){
-        log.info("account enquiry info {}", accountId);
-        return Res.success(accountEnquiryService.getBalanceByAccountId(accountId));
+    @PostMapping("/balance")
+    public Result<AccountEnquiryResponseDto> getBalance(@Valid @RequestBody AccountEnquiryRequestDto accountEnquiryRequestDto){
+        log.info("account enquiry info {}", accountEnquiryRequestDto);
+        return Res.success(accountEnquiryService.getBalanceByAccountId(accountEnquiryRequestDto));
     }
 
     @PostMapping("/balance/transfer")

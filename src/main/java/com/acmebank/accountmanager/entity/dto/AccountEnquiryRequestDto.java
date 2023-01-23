@@ -11,13 +11,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TransferRequestDto {
+public class AccountEnquiryRequestDto {
     @NotNull
-    private Long senderAccountId;
-    @NotNull
-    private Long receiverAccountId;
-    @NotNull
-    private Double amount;
-    @NotNull
-    private String currency;
+    private Long accountId;
 }

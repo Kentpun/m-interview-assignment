@@ -1,5 +1,6 @@
 package com.acmebank.accountmanager.service.impl;
 
+import com.acmebank.accountmanager.entity.dto.AccountEnquiryRequestDto;
 import com.acmebank.accountmanager.entity.dto.AccountEnquiryResponseDto;
 import com.acmebank.accountmanager.entity.po.Account;
 import com.acmebank.accountmanager.exception.BizException;
@@ -23,10 +24,10 @@ public class AccountEnquiryServiceImpl implements AccountEnquiryService {
     private AccountEnquiryResponseDto responseDto;
 
     @Override
-    public AccountEnquiryResponseDto getBalanceByAccountId(Long accountId) {
+    public AccountEnquiryResponseDto getBalanceByAccountId(AccountEnquiryRequestDto accountEnquiryRequestDto) {
         List<Account> accounts;
         try {
-             accounts = accountRepository.findAccountById(accountId);
+             accounts = accountRepository.findAccountById(accountEnquiryRequestDto.getAccountId());
         } catch (Exception e){
             e.printStackTrace();
             log.error(String.valueOf(e));
