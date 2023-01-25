@@ -20,7 +20,6 @@ import java.util.List;
 
 @Service
 @Slf4j
-@Transactional
 public class TransferServiceImpl implements TransferService {
     @Autowired
     private AccountRepository accountRepository;
@@ -31,6 +30,7 @@ public class TransferServiceImpl implements TransferService {
     private TransferResponseDto transferResponseDto;
 
     @Override
+    @Transactional(rollbackOn=BizException.class)
     public TransferResponseDto transferBalance(TransferRequestDto transferRequestDto) {
         List<Account> senderAccount = null;
         List<Account> receiverAccount = null;
