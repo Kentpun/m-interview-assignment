@@ -25,4 +25,8 @@ public class TransferRequestDto {
     @NotNull
     @Valid
     private String currency;
+    // a mock parameter, should be handled by proper OAuth
+    @NotNull
+    @Valid
+    private Long ownerId;
 }

@@ -24,10 +24,10 @@ public class AccountEnquiryServiceImpl implements AccountEnquiryService {
     private AccountEnquiryResponseDto responseDto;
 
     @Override
-    public AccountEnquiryResponseDto getBalanceByAccountId(AccountEnquiryRequestDto accountEnquiryRequestDto) {
+    public AccountEnquiryResponseDto getAccountByOwnerId(AccountEnquiryRequestDto accountEnquiryRequestDto) {
         List<Account> accounts;
         try {
-             accounts = accountRepository.findAccountById(accountEnquiryRequestDto.getAccountId());
+             accounts = accountRepository.findAccountsByOwnerId(accountEnquiryRequestDto.getOwnerId());
         } catch (Exception e){
             e.printStackTrace();
             log.error(String.valueOf(e));

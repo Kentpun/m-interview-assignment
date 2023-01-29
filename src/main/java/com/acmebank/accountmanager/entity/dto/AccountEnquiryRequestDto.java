@@ -16,5 +16,5 @@ public class AccountEnquiryRequestDto {
 
     @Valid
     @NotNull
-    private Long accountId;
+    private Long ownerId;
 }

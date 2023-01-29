@@ -23,6 +23,10 @@ public class Account extends AuditEntity {
     private Long id;
 
     @Basic
+    @Column(name = "owner_id")
+    private Long ownerId;
+
+    @Basic
     @Column(name = "balance")
     private Double balance;
 

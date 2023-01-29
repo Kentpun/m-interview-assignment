@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AccountEnquiryService {
-    public AccountEnquiryResponseDto getBalanceByAccountId(AccountEnquiryRequestDto accountEnquiryRequestDto);
+    public AccountEnquiryResponseDto getAccountByOwnerId(AccountEnquiryRequestDto accountEnquiryRequestDto);
 
 }

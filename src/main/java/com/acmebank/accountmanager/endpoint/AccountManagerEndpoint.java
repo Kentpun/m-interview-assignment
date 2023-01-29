@@ -33,7 +33,7 @@ public class AccountManagerEndpoint extends GlobalExceptionHandler {
     @PostMapping("/balance")
     public Result<AccountEnquiryResponseDto> getBalance(@Valid @RequestBody AccountEnquiryRequestDto accountEnquiryRequestDto){
         log.info("account enquiry info {}", accountEnquiryRequestDto);
-        return Res.success(accountEnquiryService.getBalanceByAccountId(accountEnquiryRequestDto));
+        return Res.success(accountEnquiryService.getAccountByOwnerId(accountEnquiryRequestDto));
     }
 
     @PostMapping("/balance/transfer")
